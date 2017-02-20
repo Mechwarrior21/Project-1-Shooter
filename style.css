@@ -6,7 +6,7 @@ html, body {
     overflow: hidden;
 }
 
-#playingField {
+#board {
     background-color: darkorange;
     position: absolute;
     height: 850px;
@@ -18,7 +18,7 @@ html, body {
     
 }
 
-#playerOne{
+#player{
     height: 32px;
     width: 32px;
     position: absolute;
@@ -29,14 +29,10 @@ html, body {
     background-color: red;
 }
 
-#playerBullet{
+.bullet{
     height: 10px;
     width: 6px; 
     position: absolute;
-    top: 77%;
-    left: 50%;
-    margin-left: -5px;
-    margin-top: -3px;
     background-color: green;
 }
 
