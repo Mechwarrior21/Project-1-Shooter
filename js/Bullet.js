@@ -1,6 +1,6 @@
 var Bullet = function(x,y) {
 
-    this.postion = {
+    this.position = {
         "x": x,
         "y": y
     }
@@ -14,16 +14,16 @@ var Bullet = function(x,y) {
         self.element = document.createElement("div");
         self.element.classList.add("bullet");
 
-        self.element.style.top = self.postion.y + "px";
-        self.element.style.left = self.postion.x + "px";
+        self.element.style.top = self.position.y + "px";
+        self.element.style.left = self.position.x + "px";
 
         var gameBoard = document.getElementById("board");
         gameBoard.appendChild(self.element);
     }
 
     this.render = function(){
-        self.postion.y -= speed;
-        self.element.style.top = self.postion.y + "px";
+        self.position.y -= speed;
+        self.element.style.top = self.position.y + "px";
     }
 
     create();

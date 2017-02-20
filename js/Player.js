@@ -1,6 +1,6 @@
 var Player = function () {
 
-    var postion = {
+    var position = {
         "x": 250,
         "y": 700
     }
@@ -10,36 +10,33 @@ var Player = function () {
     var bullets = [];
 
     function shoot(){
-        bullets.push(new Bullet(postion.x, postion.y));
+        bullets.push(new Bullet(position.x, position.y));
     }
 
     this.render = function(movement){
 
 
         if(movement.up){
-            postion.y -= speed;
+            position.y -= speed;
         }
 
         if(movement.down){
-            postion.y += speed;
+            position.y += speed;
         }
 
         if(movement.left){
-            postion.x -= speed;
+            position.x -= speed;
         }
 
         if(movement.right){
-            postion.x += speed;
+            position.x += speed;
         }
 
         if(movement.shoot){
             shoot();
         }
-
-        playerElement.style.top = postion.y + "px";
-        playerElement.style.left = postion.x + "px";
-
-        /*if(position.y <= 16){
+        
+        if(position.y <= 16){
             position.y = 16;
         }
     
@@ -53,12 +50,15 @@ var Player = function () {
 
         if(position.x >= 484){
             position.x = 484;
-        }*/
+        }
+
+        playerElement.style.top = position.y + "px";
+        playerElement.style.left = position.x + "px";
         
         bullets.forEach(function(el, index){
             el.render();
 
-            if(el.postion.y < 0 ){
+            if(el.position.y < 0 ){
                 el.element.remove();
                 bullets.slice(index,1);
             }
