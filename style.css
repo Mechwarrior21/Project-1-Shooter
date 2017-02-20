@@ -1,0 +1,86 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+#playingField {
+    background-color: darkorange;
+    position: absolute;
+    height: 850px;
+    width: 500px;
+    top: 50%;
+    left: 50%;
+    margin-top: -425px;
+    margin-left: -250px;
+    
+}
+
+#playerOne{
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    top: 80%; 
+    left: 50%;
+    margin-left: -16px;
+    margin-top: -16px;
+    background-color: red;
+}
+
+#playerBullet{
+    height: 10px;
+    width: 6px; 
+    position: absolute;
+    top: 77%;
+    left: 50%;
+    margin-left: -5px;
+    margin-top: -3px;
+    background-color: green;
+}
+
+#enemyOne{
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    margin-left: -16px;
+    margin-top: -16px;
+    background-color: grey;
+}
+
+#enemyTwo{
+    height: 64px;
+    width: 64px;
+    position: absolute;
+    top: 20%;
+    left: 35%;
+    margin-left: -32px;
+    margin-top: -32px;
+    background-color: grey;
+}
+
+#enemyThree{
+    height: 128px;
+    width: 128px;
+    position: absolute;
+    top: 20%;
+    left: 70%;
+    margin-left: -64px;
+    margin-top: -64px;
+    background-color: grey;
+}
+
+#enemyBullet {
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-left: -5px;
+    margin-top: -5px;
+    background-color: black;
+}
