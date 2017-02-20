@@ -12,7 +12,7 @@ window.requestAnimFrame = (function(){
 
 // Controls for Player avatar
 
-/*function playerOneMovement(){
+function playerOneMovement(){
 var keyUP = false;
 var keyDOWN = false;
 var keyLEFT = false;
@@ -59,20 +59,15 @@ document.addEventListener('keyup', function(e) {
 
 };
 
-// Set posotion of Player One
-var screenHeight = playingField.innerHeight;
-var screenWidth = playingField.innerWidth;
-
-var x = playingField.innerWidth / 2;
-var y = playingField.innerHeight / 2;
-var speed = 20;
-
-var playerOnePosition = document.getElementById("playerOne");
-playerOnePosition.style.top = y;
-playerOnePosition.style.left = x;
 
 // Edge detection
 function edgeDetect(){
+    
+    var screenHeight = playingField.innerHeight;
+    var screenWidth = playingField.innerWidth;
+
+    var x = playingField.innerWidth / 2;
+    var y = playingField.innerHeight / 2;
   
     if(y <= 16){
       y = 16;
@@ -89,34 +84,38 @@ function edgeDetect(){
     if(x >= (playingField.innerWidth-16)){
       x = playingField.innerWidth-16;
     }
-}
+};
 
 // Rendering code
 function render(){
+    
+    var playerOnePosition = document.getElementById("playerOne");
+    playerOnePosition.style.top = y;
+    playerOnePosition.style.left = x;
+    var speed = 20;
+    
+    if(keyUP || motion.up){
+        y -= speed;
+    }
   
-  if(keyUP || motion.up){
-    y -= speed;
-  }
+    if(keyDOWN || motion.down){
+        y += speed;
+    }
   
-  if(keyDOWN || motion.down){
-    y += speed;
-  }
+    if(keyLEFT || motion.left){
+        x -= speed;
+    }
   
-  if(keyLEFT || motion.left){
-    x -= speed;
-  }
-  
-  if(keyRIGHT || motion.right){
-    x += speed;
-  }
+    if(keyRIGHT || motion.right){
+        x += speed;
+    }
   
   edgeDetect();
   
-  playerOnePosition.style.top = y;
-  playerOnePosition.style.left = x;
-}
+};
 
-(function animloop(){
+function animloop(){
   requestAnimFrame(animloop);
   render();
-})();*/
+};
+
