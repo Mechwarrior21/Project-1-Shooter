@@ -63,8 +63,8 @@ document.addEventListener('keyup', function(e) {
 // Edge detection
 function edgeDetect(){
     
-    var screenHeight = playingField.innerHeight;
-    var screenWidth = playingField.innerWidth;
+    var screenHeight = board.innerHeight;
+    var screenWidth = board.innerWidth;
 
     var x = playingField.innerWidth / 2;
     var y = playingField.innerHeight / 2;
@@ -118,4 +118,3 @@ function animloop(){
   requestAnimFrame(animloop);
   render();
 };
-

@@ -22,8 +22,6 @@ html, body {
     height: 32px;
     width: 32px;
     position: absolute;
-    top: 80%; 
-    left: 50%;
     margin-left: -16px;
     margin-top: -16px;
     background-color: red;
@@ -33,15 +31,15 @@ html, body {
     height: 10px;
     width: 6px; 
     position: absolute;
+    margin-left: -3px;
+    margin-top: -5px;
     background-color: green;
 }
 
-#enemyOne{
+/*#enemyOne{
     height: 32px;
     width: 32px;
     position: absolute;
-    top: 20%;
-    left: 15%;
     margin-left: -16px;
     margin-top: -16px;
     background-color: grey;
@@ -51,8 +49,6 @@ html, body {
     height: 64px;
     width: 64px;
     position: absolute;
-    top: 20%;
-    left: 35%;
     margin-left: -32px;
     margin-top: -32px;
     background-color: grey;
@@ -62,8 +58,6 @@ html, body {
     height: 128px;
     width: 128px;
     position: absolute;
-    top: 20%;
-    left: 70%;
     margin-left: -64px;
     margin-top: -64px;
     background-color: grey;
@@ -79,4 +73,4 @@ html, body {
     margin-left: -5px;
     margin-top: -5px;
     background-color: black;
-}
+}*/
