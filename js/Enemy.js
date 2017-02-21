@@ -27,11 +27,19 @@ var Enemy = function () {
         self.position.y += speed;
         self.element.style.top = self.position.y + "px";
         
-        if(self.position.y = 900 ){
+        
+        if (self.position.x < Bullet.position.x + 6 &&
+            6 + self.position.x > Bullet.position.x &&
+            self.position.y < Bullet.position.y + 10 &&
+            10 + self.position.y > Bullet.position.y){
+            
+            self.element.remove();
+            
+        } else if (self.position.y == 900){
+            
             self.element.remove();
         }
-        
-        
+    
     }    
     
     createEnemy();

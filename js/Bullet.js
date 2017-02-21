@@ -4,6 +4,7 @@ var Bullet = function(x,y) {
         "x": x,
         "y": y
     }
+    
     var speed = 20;
     this.element = null;
     

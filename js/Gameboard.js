@@ -67,7 +67,6 @@ var Gameboard = function(){
     function render(){
         player.render(movement);
         enemy.render();
-      //  this.enemies.render(movement);
     }
 
 
