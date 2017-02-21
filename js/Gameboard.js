@@ -61,7 +61,6 @@ var Gameboard = function(){
         }
     });
 
-
     /*
      *  Render game
      */

@@ -1,12 +1,11 @@
 var Enemy = function () {
     
-    var position = {
+    this.position = {
         "x": 100,
         "y": -70
     }
     
-    var speed = 5;
-    var bullets = [];
+    var speed = 2;
     this.element = null;
     
     var self = this;
@@ -16,8 +15,8 @@ var Enemy = function () {
         self.element = document.createElement("div");
         self.element.classList.add("enemyOne");
 
-        self.element.style.top = position.y + "px";
-        self.element.style.left = position.x + "px";
+        self.element.style.top = self.position.y + "px";
+        self.element.style.left = self.position.x + "px";
 
         var gameBoard = document.getElementById("board");
         gameBoard.appendChild(self.element);
@@ -27,7 +26,13 @@ var Enemy = function () {
     this.render = function(){
         self.position.y += speed;
         self.element.style.top = self.position.y + "px";
-    }
+        
+        if(self.position.y = 900 ){
+            self.element.remove();
+        }
+        
+        
+    }    
     
     createEnemy();
 }
