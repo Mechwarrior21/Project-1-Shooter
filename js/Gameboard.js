@@ -2,6 +2,7 @@ var Gameboard = function(){
 
     var board = document.getElementById('board');           // Game board
     var player = new Player();
+    var enemy = new Enemy();
 
     var movement = {
         "up":false,
@@ -66,6 +67,7 @@ var Gameboard = function(){
      */
     function render(){
         player.render(movement);
+        enemy.render();
       //  this.enemies.render(movement);
     }
 

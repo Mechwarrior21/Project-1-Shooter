@@ -36,7 +36,7 @@ html, body {
     background-color: green;
 }
 
-/*#enemyOne{
+.enemyOne{
     height: 32px;
     width: 32px;
     position: absolute;
@@ -45,7 +45,7 @@ html, body {
     background-color: grey;
 }
 
-#enemyTwo{
+/*#enemyTwo{
     height: 64px;
     width: 64px;
     position: absolute;
