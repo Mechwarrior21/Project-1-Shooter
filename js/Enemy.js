@@ -1,8 +1,8 @@
 var Enemy = function () {
     
     this.position = {
-        "x": 100,
-        "y": -70
+        "x": Math.floor(Math.random() * ((484-16)+1) +16),
+        "y": -16
     }
     
     var speed = 2;
@@ -27,11 +27,11 @@ var Enemy = function () {
         self.position.y += speed;
         self.element.style.top = self.position.y + "px";
         
-        if (self.position.y == 900){
+        if (self.position.y == 866){
             self.element.remove();
         };
     
-    };    
+    };   
     
     createEnemy();
 };

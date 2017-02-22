@@ -61,9 +61,9 @@ var Gameboard = function(){
         }
     });
     
-    function enemyCollision() {
+    /*function enemyCollision() {
         debugger;
-        /*for(i = 0; i < ; i++){*/
+        for(i = 0; i < bullet.element.length; i++){
             if(!(enemy.element && bullet.element)){
                 return;
             };
@@ -82,7 +82,20 @@ var Gameboard = function(){
 
         };
     
-//    };
+    };*/
+    
+    /*
+     *  Enemy Spawner
+     */
+    function enemySpawner() {
+    
+        for(i = 0; i <= 50; i++){
+            new Enemy();
+            console.log(i)
+        };
+        
+    };
+    
     
     /*
      *  Render game
@@ -90,7 +103,8 @@ var Gameboard = function(){
     function render(){
         player.render(movement);
         enemy.render();
-        enemyCollision();
+        //enemyCollision();
+        enemySpawner();
     };
 
 

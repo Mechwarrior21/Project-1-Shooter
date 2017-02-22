@@ -1,5 +1,5 @@
 var Bullet = function(x,y) {
-
+    
     this.position = {
         "x": x,
         "y": y
