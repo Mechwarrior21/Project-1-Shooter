@@ -61,13 +61,29 @@ var Gameboard = function(){
         }
     });
 
+    function enemyCollision() {
+        var enemy = document.getElementsByClassName('enemyOne');
+        var bullet = document.getElementsByClassName('bullet');
+        
+        
+        if (enemy.getClientRects()[0].left < bullet.getClientRects()[0].left + 6 &&
+            6 + enemy.getClientRects()[0].left > bullet.getClientRects()[0].left &&
+            enemy.getClientRects()[0].top < bullet.getClientRects()[0].top + 10 &&
+            10 + enemy.getClientRects()[0].top > bullet.getClientRects()[0].top){
+            
+            enemy.element.remove();
+        };
+        
+    };
+    
     /*
      *  Render game
      */
     function render(){
         player.render(movement);
         enemy.render();
-    }
+        enemyCollision();
+    };
 
 
     /*
