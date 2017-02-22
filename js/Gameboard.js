@@ -60,21 +60,29 @@ var Gameboard = function(){
             default:
         }
     });
-
+    
     function enemyCollision() {
-        var enemy = document.getElementsByClassName('enemyOne');
-        var bullet = document.getElementsByClassName('bullet');
+        debugger;
+        /*for(i = 0; i < ; i++){*/
+            if(!(enemy.element && bullet.element)){
+                return;
+            };
         
+            var enemyRect = enemy.element.getClientRects()[0];
+            var bulletRect = bullet.element.getClientRects()[0];
         
-        if (enemy.getClientRects()[0].left < bullet.getClientRects()[0].left + 6 &&
-            6 + enemy.getClientRects()[0].left > bullet.getClientRects()[0].left &&
-            enemy.getClientRects()[0].top < bullet.getClientRects()[0].top + 10 &&
-            10 + enemy.getClientRects()[0].top > bullet.getClientRects()[0].top){
+            if (enemyRect.left < bulletRect.left + bulletRect.width &&
+                enemyRect.left + enemyRect.width > bulletRect.left &&
+                enemyRect.top < bulletRect.top + bulletRect.height &&
+                enemyRect.height + enemyRect.top > bulletRect.top){
             
-            enemy.element.remove();
+                console.log("Collision");
+                //enemy.element.remove();
+            };
+
         };
-        
-    };
+    
+//    };
     
     /*
      *  Render game
