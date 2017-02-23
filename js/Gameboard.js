@@ -7,7 +7,6 @@ var Gameboard = function(){
     this.playerBullets = [];
     var self = this;
 
-
     var framesCounter = 0;
 
     var movement = {
@@ -73,7 +72,6 @@ var Gameboard = function(){
             enemies.push(new Enemy());
         }
     }
-
 
     function enemyCollision() {
 
@@ -172,10 +170,7 @@ var Gameboard = function(){
 
         enemyCollision();
 
-
-
     };
-
 
     /*
      *  Game loop
@@ -188,7 +183,6 @@ var Gameboard = function(){
     animloop();
 };
 
-
 /*
  *  Polyfill requestAnimationFrame works on any browser
  */
@@ -200,6 +194,5 @@ window.requestAnimFrame = (function(){
             window.setTimeout(callback, 1000 / 60);
         };
 })();
-
 
 var gameBoard = new Gameboard();

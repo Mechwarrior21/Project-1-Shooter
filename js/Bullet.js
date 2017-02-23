@@ -8,8 +8,7 @@ var Bullet = function(x,y, type) {
     var speed = 20;
     this.element = null;
     var type = type;
-
-
+    
     var self = this;
 
     var create = function () {

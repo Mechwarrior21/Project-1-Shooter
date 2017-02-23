@@ -1,6 +1,5 @@
 var Enemy = function () {
     
-
         var gameBoard = document.getElementById("board");
         var gameBoardRect = gameBoard.getClientRects()[0];
 
@@ -22,7 +21,6 @@ var Enemy = function () {
                  window.gameBoard.enemyBullets.push(new Bullet(self.position.x, self.position.y, "enemy"));
             }
         }
-
 
         var createEnemy = function () {
                 self.element = document.createElement("div");

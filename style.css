@@ -8,6 +8,12 @@ html, body {
     background-position: center;
 }
 
+#startscreen {
+    position: absolute;
+    display: block;
+    z-index: 20;
+}
+
 #board {
     background-color: darkorange;
     position: absolute;
@@ -21,7 +27,7 @@ html, body {
     background-position: left;
 }
     
-#player{
+#player {
     height: 32px;
     width: 32px;
     position: absolute;
@@ -31,7 +37,7 @@ html, body {
     background-size: 100% 100%;
 }
 
-.bullet{
+.bullet {
     height: 10px;
     width: 6px; 
     position: absolute;
@@ -46,35 +52,5 @@ html, body {
     position: absolute;
     margin-left: -16px;
     margin-top: -16px;
-    background-color: grey;
+    background-image: url(image/rsz_shship.png)
 }
-
-/*#enemyTwo{
-    height: 64px;
-    width: 64px;
-    position: absolute;
-    margin-left: -32px;
-    margin-top: -32px;
-    background-color: grey;
-}
-
-#enemyThree{
-    height: 128px;
-    width: 128px;
-    position: absolute;
-    margin-left: -64px;
-    margin-top: -64px;
-    background-color: grey;
-}
-
-#enemyBullet {
-    height: 10px;
-    width: 10px;
-    border-radius: 5px;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    margin-left: -5px;
-    margin-top: -5px;
-    background-color: black;
-}*/
