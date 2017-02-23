@@ -4,6 +4,8 @@ html, body {
     padding: 0;
     margin: 0;
     overflow: hidden;
+    background-image: url(image/Sid_Meiers_Civilization_Beyond_Earth_Background_Blue_Space.jpg);
+    background-position: center;
 }
 
 #board {
@@ -15,7 +17,8 @@ html, body {
     left: 50%;
     margin-top: -425px;
     margin-left: -250px;
-    
+    background-image: url(image/stars-pixel-desktop-background-space-resolutions-wallpapers-wallpaper-large.jpg);
+    background-position: left;
 }
     
 #player{
@@ -24,7 +27,8 @@ html, body {
     position: absolute;
     margin-left: -16px;
     margin-top: -16px;
-    background-color: red;
+    background-image: url(./image/rsz_1ship.png);
+    background-size: 100% 100%;
 }
 
 .bullet{

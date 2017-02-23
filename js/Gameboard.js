@@ -85,26 +85,12 @@ var Gameboard = function(){
     };*/
     
     /*
-     *  Enemy Spawner
-     */
-    function enemySpawner() {
-    
-        for(i = 0; i <= 50; i++){
-            new Enemy();
-            console.log(i)
-        };
-        
-    };
-    
-    
-    /*
      *  Render game
      */
     function render(){
         player.render(movement);
         enemy.render();
         //enemyCollision();
-        enemySpawner();
     };
 
 
