@@ -1,4 +1,4 @@
-var Bullet = function(x,y) {
+var Bullet = function(x,y, type) {
     
     this.position = {
         "x": x,
@@ -7,13 +7,16 @@ var Bullet = function(x,y) {
     
     var speed = 20;
     this.element = null;
-    
+    var type = type;
+
+
     var self = this;
 
     var create = function () {
 
         self.element = document.createElement("div");
         self.element.classList.add("bullet");
+        self.element.classList.add(type);
 
         self.element.style.top = self.position.y + "px";
         self.element.style.left = self.position.x + "px";
@@ -23,7 +26,11 @@ var Bullet = function(x,y) {
     }
 
     this.render = function(){
-        self.position.y -= speed;
+        if(type == "player") {
+            self.position.y -= speed;
+        }else{
+            self.position.y += speed;
+        }
         self.element.style.top = self.position.y + "px";
     }
 

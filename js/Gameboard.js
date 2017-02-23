@@ -2,7 +2,13 @@ var Gameboard = function(){
 
     var board = document.getElementById('board');           // Game board
     var player = new Player();
-    var enemy = new Enemy();
+    var enemies = [];
+    this.enemyBullets = [];
+    this.playerBullets = [];
+    var self = this;
+
+
+    var framesCounter = 0;
 
     var movement = {
         "up":false,
@@ -60,37 +66,114 @@ var Gameboard = function(){
             default:
         }
     });
-    
-    /*function enemyCollision() {
-        debugger;
-        for(i = 0; i < bullet.element.length; i++){
-            if(!(enemy.element && bullet.element)){
-                return;
-            };
-        
-            var enemyRect = enemy.element.getClientRects()[0];
-            var bulletRect = bullet.element.getClientRects()[0];
-        
-            if (enemyRect.left < bulletRect.left + bulletRect.width &&
-                enemyRect.left + enemyRect.width > bulletRect.left &&
-                enemyRect.top < bulletRect.top + bulletRect.height &&
-                enemyRect.height + enemyRect.top > bulletRect.top){
-            
-                console.log("Collision");
-                //enemy.element.remove();
-            };
 
-        };
-    
-    };*/
+    function spawnEnemy() {
+
+        if((framesCounter%60 == 0)){
+            enemies.push(new Enemy());
+        }
+    }
+
+
+    function enemyCollision() {
+
+        /*
+         *      Player bullets -> Enemy
+         */
+
+        for(var i = 0; i < self.playerBullets.length;i++){
+             var bullet =  self.playerBullets[i];
+
+             if(bullet.element.getClientRects().length == 0 ){
+                 continue;
+             }
+
+             var bulletRect = bullet.element.getClientRects()[0];
+
+             for(var j =0; j< enemies.length; j++){
+                 var enemy = enemies[j];
+
+                 if(enemy.element.getClientRects().length == 0 ){
+                     continue;
+                 }
+
+                 var enemyRect = enemy.element.getClientRects()[0];
+
+                 if (enemyRect.left < bulletRect.left + bulletRect.width &&
+                     enemyRect.left + enemyRect.width > bulletRect.left &&
+                     enemyRect.top < bulletRect.top + bulletRect.height &&
+                     enemyRect.height + enemyRect.top > bulletRect.top){
+
+                     enemy.element.remove();
+                     bullet.element.remove();
+                     self.playerBullets.splice(i,1);
+                     enemies.splice(j,1);
+                 }
+             }
+        }
+
+        /*
+         *      Enemy bullets -> Player
+         */
+        var playerRect = player.playerElement.getClientRects()[0];
+        for(var i = 0; i < self.enemyBullets.length;i++){
+
+            var enemyBullet = self.enemyBullets[i];
+            if(enemyBullet.element.getClientRects().length == 0 ){
+                continue;
+            }
+
+            var enemyBulletRect = enemyBullet.element.getClientRects()[0];
+
+            if (playerRect.left < enemyBulletRect.left + enemyBulletRect.width &&
+                playerRect.left + playerRect.width > enemyBulletRect.left &&
+                playerRect.top < enemyBulletRect.top + enemyBulletRect.height &&
+                playerRect.height + playerRect.top > enemyBulletRect.top){
+
+                console.log("you are dead");
+
+                // Insert major explosion
+            }
+        }
+    };
     
     /*
      *  Render game
      */
     function render(){
+        framesCounter++;
         player.render(movement);
-        enemy.render();
-        //enemyCollision();
+
+
+        self.enemyBullets.forEach(function(el, index){
+            el.render();
+
+            if(el.position.y > window.innerHeight ){
+                el.element.remove();
+                self.enemyBullets.slice(index,1);
+            }
+        });
+
+
+        self.playerBullets.forEach(function(el, index){
+            el.render();
+
+            if(el.position.y < 0 ){
+                el.element.remove();
+                self.playerBullets.slice(index,1);
+            }
+        });
+
+        spawnEnemy();
+
+        enemies.forEach(function (el,index){
+            el.render();
+        });
+
+        enemyCollision();
+
+
+
     };
 
 

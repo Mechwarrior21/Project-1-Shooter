@@ -5,12 +5,13 @@ var Player = function () {
         "y": 700
     }
     var speed = 5;
-    var playerElement = document.getElementById("player");
+    this.playerElement = document.getElementById("player");
     var gameBoard = document.getElementById("board");
-    var bullets = [];
+    this.bullets = [];
+    var self = this;
 
     function shoot(){
-        bullets.push(new Bullet(position.x, position.y));
+        window.gameBoard.playerBullets.push(new Bullet(position.x, position.y, "player"));
     }
 
     this.render = function(movement){
@@ -52,16 +53,7 @@ var Player = function () {
             position.x = 484;
         }
 
-        playerElement.style.top = position.y + "px";
-        playerElement.style.left = position.x + "px";
-        
-        bullets.forEach(function(el, index){
-            el.render();
-
-            if(el.position.y < 0 ){
-                el.element.remove();
-                bullets.slice(index,1);
-            }
-        });
+        self.playerElement.style.top = position.y + "px";
+        self.playerElement.style.left = position.x + "px";
     }
 }
