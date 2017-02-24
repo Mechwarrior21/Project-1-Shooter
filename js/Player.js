@@ -1,22 +1,25 @@
 var Player = function () {
 
+    //Player initial position
     var position = {
         "x": 250,
         "y": 700
     }
+    
     var speed = 5;
     this.playerElement = document.getElementById("player");
     var gameBoard = document.getElementById("board");
     this.bullets = [];
     var self = this;
 
+    // Shooting function for the player div
     function shoot(){
         window.gameBoard.playerBullets.push(new Bullet(position.x, position.y, "player"));
     }
 
     this.render = function(movement){
 
-
+        // Movement speed functions
         if(movement.up){
             position.y -= speed;
         }
@@ -37,6 +40,7 @@ var Player = function () {
             shoot();
         }
         
+        // Edge detection for player
         if(position.y <= 16){
             position.y = 16;
         }

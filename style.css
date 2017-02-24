@@ -6,16 +6,31 @@ html, body {
     overflow: hidden;
     background-image: url(image/Sid_Meiers_Civilization_Beyond_Earth_Background_Blue_Space.jpg);
     background-position: center;
+    position: relative;
 }
 
 #startscreen {
     position: absolute;
-    display: block;
-    z-index: 20;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    background-image: url(image/6782408-cool-pixel-background.jpg)
+}
+
+#startbutton{
+    z-index: 11;
+    position: absolute;
+    border: none;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 70px;
+    top: 45%;
+    left: 45%;
+    background: none;
 }
 
 #board {
-    background-color: darkorange;
     position: absolute;
     height: 850px;
     width: 500px;

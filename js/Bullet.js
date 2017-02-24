@@ -1,5 +1,6 @@
 var Bullet = function(x,y, type) {
     
+    // Bullet position
     this.position = {
         "x": x,
         "y": y
@@ -11,6 +12,7 @@ var Bullet = function(x,y, type) {
     
     var self = this;
 
+    // Bullet creation
     var create = function () {
 
         self.element = document.createElement("div");
@@ -24,6 +26,7 @@ var Bullet = function(x,y, type) {
         gameBoard.appendChild(self.element);
     }
 
+    // Rendering bullets for player and enemies
     this.render = function(){
         if(type == "player") {
             self.position.y -= speed;

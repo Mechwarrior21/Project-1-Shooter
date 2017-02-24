@@ -1,10 +1,18 @@
+// Button to hide start screen
+var button = document.getElementById('startbutton');
+
+button.onclick = function(){
+    var startscreen = document.getElementById('startscreen')
+    startscreen.style.display = 'none';
+}
+
 var Gameboard = function(){
 
     var board = document.getElementById('board');           // Game board
-    var player = new Player();
-    var enemies = [];
-    this.enemyBullets = [];
-    this.playerBullets = [];
+    var player = new Player();                              // Player spawn
+    var enemies = [];                                       // Enemy array
+    this.enemyBullets = [];                                 // Enemy bullet array
+    this.playerBullets = [];                                // Player bullet array
     var self = this;
 
     var framesCounter = 0;
@@ -17,10 +25,7 @@ var Gameboard = function(){
         "shoot":false
     };
 
-
-    /*
-     * Event listeners
-     */
+    //Event listeners to start movement
     document.addEventListener('keydown', function(e) {
 
         console.log(e.keyCode);
@@ -45,6 +50,7 @@ var Gameboard = function(){
         }
     });
 
+    // Event listeners to stop movement
     document.addEventListener('keyup', function(e) {
         switch(e.keyCode){
             case 38:
@@ -65,7 +71,8 @@ var Gameboard = function(){
             default:
         }
     });
-
+    
+    //Enemy spawner
     function spawnEnemy() {
 
         if((framesCounter%60 == 0)){
@@ -75,10 +82,7 @@ var Gameboard = function(){
 
     function enemyCollision() {
 
-        /*
-         *      Player bullets -> Enemy
-         */
-
+        // Player bullets -> Enemy
         for(var i = 0; i < self.playerBullets.length;i++){
              var bullet =  self.playerBullets[i];
 
@@ -110,9 +114,7 @@ var Gameboard = function(){
              }
         }
 
-        /*
-         *      Enemy bullets -> Player
-         */
+        // Enemy bullets -> Player
         var playerRect = player.playerElement.getClientRects()[0];
         for(var i = 0; i < self.enemyBullets.length;i++){
 
@@ -135,14 +137,12 @@ var Gameboard = function(){
         }
     };
     
-    /*
-     *  Render game
-     */
+    // Render game
     function render(){
         framesCounter++;
         player.render(movement);
 
-
+        // Enemy bullet rendering and erase
         self.enemyBullets.forEach(function(el, index){
             el.render();
 
@@ -152,7 +152,7 @@ var Gameboard = function(){
             }
         });
 
-
+        // Player bullet rendering and erase
         self.playerBullets.forEach(function(el, index){
             el.render();
 
@@ -161,7 +161,8 @@ var Gameboard = function(){
                 self.playerBullets.slice(index,1);
             }
         });
-
+        
+        // Enemy spawning render
         spawnEnemy();
 
         enemies.forEach(function (el,index){
@@ -172,9 +173,7 @@ var Gameboard = function(){
 
     };
 
-    /*
-     *  Game loop
-     */
+    // Game loop
     function animloop(){
         window.requestAnimFrame(animloop);
         render();
@@ -183,9 +182,8 @@ var Gameboard = function(){
     animloop();
 };
 
-/*
- *  Polyfill requestAnimationFrame works on any browser
- */
+
+// Polyfill requestAnimationFrame works on any browser
 window.requestAnimFrame = (function(){
     return  window.requestAnimationFrame       ||
         window.webkitRequestAnimationFrame ||
