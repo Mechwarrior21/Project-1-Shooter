@@ -15,7 +15,7 @@ var Enemy = function () {
     var framesCounter = 0;
     var self = this;
 
-    // Enemy shooting function
+    // Enemy shooting function based on frame count
     var shoot = function(){
         if((framesCounter%60 == 0)){
         window.gameBoard.enemyBullets.push(new Bullet(self.position.x, self.position.y, "enemy"));
@@ -34,7 +34,7 @@ var Enemy = function () {
         gameBoard.appendChild(self.element);
     };
 
-    // Render enemies on board and speed variable
+    // Render enemies on game board
     this.render = function(){
         framesCounter++;
         self.position.y += speed;

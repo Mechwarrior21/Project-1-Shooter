@@ -15,7 +15,7 @@ var Gameboard = function(){
     this.playerBullets = [];                                // Player bullet array
     var self = this;
 
-    var framesCounter = 0;
+    var framesCounter = 0;                                  // Used for enemy spawning and enemy shooting
 
     var movement = {
         "up":false,
@@ -72,7 +72,7 @@ var Gameboard = function(){
         }
     });
     
-    //Enemy spawner
+    //Enemy spawner based on frames rendered
     function spawnEnemy() {
 
         if((framesCounter%60 == 0)){
@@ -131,8 +131,6 @@ var Gameboard = function(){
                 playerRect.height + playerRect.top > enemyBulletRect.top){
 
                 console.log("you are dead");
-
-                // Insert major explosion
             }
         }
     };
